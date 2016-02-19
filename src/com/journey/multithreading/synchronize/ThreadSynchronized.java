@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.journey.multithreading.synchronize;
 
 /**
@@ -77,3 +78,33 @@ public class ThreadSynchronized {
 
 }
 
+=======
+package com.journey.multithreading.synchronize;
+
+/**
+ * 线程的同步与锁
+ * PROJECT: multithreading
+ * Created by xiaxiangnan on 15-12-4.
+ */
+public class ThreadSynchronized {
+
+    private int x;
+
+    public synchronized int getX() {
+        return x++;
+    }
+
+    /**
+     * 效果和getX是完全一样的。
+     */
+    public int getX2() {
+        synchronized (this) {
+            return x;
+        }
+    }
+
+
+
+}
+
+>>>>>>> 89a73c1f7e2b35477d263710223f8b8d57bb2ebe
