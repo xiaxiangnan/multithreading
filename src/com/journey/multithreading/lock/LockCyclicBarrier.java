@@ -9,6 +9,14 @@ import java.util.concurrent.CyclicBarrier;
  * 因为该 barrier 在释放等待线程后可以重用，所以称它为循环 的 barrier。
  *
  * 对于失败的同步尝试，CyclicBarrier 使用了一种要么全部要么全不 (all-or-none) 的破坏模式
+ *
+ * 满足以下任何条件都可以让等待 CyclicBarrier 的线程释放：
+ * 1. 最后一个线程也到达 CyclicBarrier(调用 await())
+ * 2. 当前线程被其他线程打断(其他线程调用了这个线程的 interrupt() 方法)
+ * 3. 其他等待栅栏的线程被打断
+ * 4. 其他等待栅栏的线程因超时而被释放
+ * 5. 外部线程调用了栅栏的 CyclicBarrier.reset() 方法
+ *
  * <p>
  * Created by xiaxiangnan on 16/3/14.
  */
